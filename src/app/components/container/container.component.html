@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <p class="text-center text-success mt-5" [innerText]="innerText"></p>
+      <input class="form-control" #secondText />
+      <app-manual-created></app-manual-created>
+      <app-basics></app-basics>
+      <app-directives></app-directives>
+      <app-first-assignment></app-first-assignment>
+      <app-local-reference
+        [aliasInput]="innerText"
+        (aliasEvent)="customEvent($event)"
+      ></app-local-reference>
+      <app-content-projection>
+        <p multi class="text-center text-info">{{ innerText }}</p>
+        <p class="text-success text-center">Content Pojection Example</p>
+        <p class="alert alert-danger text-center py-2 px-1">
+          Note: be aware of the issues!
+        </p>
+      </app-content-projection>
+      <app-structural></app-structural>
+      <app-services-basics></app-services-basics>
+      <app-services-another></app-services-another>
+      <app-observables-basics></app-observables-basics>
+      <app-pipes-basics></app-pipes-basics>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<button 
+    class="btn mb-4" 
+    [ngClass]="{'btn-danger': !isDisabled, 'btn-success': isDisabled}" 
+    (click)="changeStatus()">
+    {{  innerText }}
+</button>
+<div *ngIf="!isDisabled;else noElements">
+    <ul>
+        <li *ngFor="let element of elementsList"  [innerText]="element"></li>
+    </ul>
+</div>
+<ng-template #noElements>
+    <p class="alert alert-danger py-2 px-2">No elements</p>
+</ng-template>

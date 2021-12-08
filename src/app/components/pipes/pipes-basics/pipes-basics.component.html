@@ -1,0 +1,27 @@
+<p class="text-center text-dark">{{ name | uppercase }}</p>
+<p class="text-center text-dark">{{ age | date: "fullDate" }}</p>
+<input type="text" class="form-control my-2" #integer />
+<input type="text" class="form-control mb-3 mt-1" #power />
+<input
+  type="button"
+  (click)="getPower(integer, power)"
+  value="Get Power"
+  class="btn btn-primary"
+/>
+<p *ngIf="displayPower" class="text-center text-info">{{ int | power: pow }}</p>
+<p class="text-center text-warning">App Status: {{ currentStatus | async }}</p>
+<input
+  type="text"
+  name="filterString"
+  class="form-control mt-3"
+  [(ngModel)]="filterString"
+/>
+<ul class="list-group my-3">
+  <li
+    *ngFor="let item of filterArray | filter: filterString"
+    class="list-group-item text-center text-success"
+  >
+    {{ item.name }}
+  </li>
+</ul>
+<p class="text-center text-dark">{{ age | date: "fullDate" | uppercase }}</p>

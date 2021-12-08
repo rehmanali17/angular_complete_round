@@ -1,0 +1,11 @@
+<ul class="list-group mb-5">
+  <li
+    style="cursor: pointer"
+    class="list-group-item text-center"
+    *ngFor="let user of userElements; let i = index"
+    (click)="updateStatus(i)"
+    [ngStyle]="{ color: user.status === true ? 'green' : 'red' }"
+  >
+    {{ user.name }}
+  </li>
+</ul>

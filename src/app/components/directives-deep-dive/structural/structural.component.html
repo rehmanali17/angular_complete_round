@@ -1,0 +1,28 @@
+<div>
+  <ul>
+    <li
+      class="text-center list-group-item"
+      *ngFor="let number of numbersList"
+      appHighlight
+      appBackground
+      hoverColor="red"
+      [defaultColor]="'white'"
+    >
+      {{ number }}
+    </li>
+  </ul>
+
+  <div [ngSwitch]="value" class="text-center text-warning">
+    <p *ngSwitchCase="5">{{ value }}</p>
+    <p *ngSwitchCase="10">{{ value }}</p>
+    <p *ngSwitchCase="15">{{ value }}</p>
+    <p *ngSwitchCase="20">{{ value }}</p>
+    <p *ngSwitchDefault>
+      {{ "Default Case" }}
+    </p>
+  </div>
+
+  <div class="my-2 text-center text-info">
+    <p *appUntil="numbersList">{{ "Structural Directive" }}</p>
+  </div>
+</div>

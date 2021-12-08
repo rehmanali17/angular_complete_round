@@ -1,0 +1,9 @@
+<button class="btn" [ngClass]="{'btn-danger': !showMessage, 'btn-success': showMessage}" (click)="updateStatus()">
+    {{innerText}} Details
+</button>
+<p *ngIf="!showMessage" class="text-center text-success">Secret Details</p>
+<div class="d-flex flex-column align-items-center my-3">
+    <ul>
+        <li *ngFor="let element of elementsList;let i = index;" [ngStyle]="{'color': getColor(i)}" [innerText]="element"></li>
+    </ul>
+</div>

@@ -1,0 +1,9 @@
+<form>
+    <input type="text" class="form-control my-2" #input/>
+    <input type="text" class="form-control my-2" #second_input/>
+    <input type="button" class="btn btn-primary" value="Save" (click)="addData(input)">
+    <input type="button" class="btn btn-warning offset-1" value="Emit" (click)="emitEvent()">
+    <p class="text-center text-success">{{ customInput }}</p>
+    <p class="text-center text-success">{{ data }}</p>
+    <p class="text-center text-success">{{ second_data }}</p>
+</form>

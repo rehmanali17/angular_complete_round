@@ -1,0 +1,7 @@
+<form autocomplete="off">
+    <!-- <input type="text" class="form-control mb-3" name="input" [(ngModel)]="input" /> -->
+    <input type="text" class="form-control mb-3" name="input" (input)="handleInput($event)" />
+    <input type="submit" class="btn btn-primary col-2" value="ADD" (click)="handleClick($event)" [disabled]="input === ''" />
+    <input type="submit" class="btn btn-secondary col-2 offset-2" value="CLEAR" (click)="handleClear($event)" />
+</form>
+<p class="text-center mt-2 text-success">{{ input }}</p>
