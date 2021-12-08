@@ -2,4 +2,67 @@
 
 <!-- <div app-container></div> -->
 
-<div class="app-container"></div>
+<ul class="nav">
+  <li class="nav-item">
+    <a
+      class="nav-link"
+      routerLink="/"
+      [routerLinkActive]="['active', 'text-decoration-underline']"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Home</a
+    >
+  </li>
+  <li class="nav-item">
+    <a
+      class="nav-link"
+      routerLink="/url-passing"
+      [routerLinkActive]="['active']"
+      >Url Passing</a
+    >
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/http" [routerLinkActive]="['active']"
+      >Http Requests</a
+    >
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="users/add-users" routerLinkActive="active"
+      >Add Users</a
+    >
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="users/view-users" routerLinkActive="active"
+      >View Users</a
+    >
+  </li>
+  <li class="nav-item">
+    <a
+      class="nav-link"
+      [routerLink]="['users/user-details', 'Rehman Ali']"
+      [queryParams]="{ allowedit: '1' }"
+      routerLinkActive="active"
+      >User Details</a
+    >
+  </li>
+  <!-- <li class="nav-item">
+    <a
+      class="nav-link"
+      routerLink="/view-users"
+      [queryParams]="{ name: 'Rehman Ali' }"
+      routerLinkActive="active"
+      >View Users</a
+    >
+  </li> -->
+  <!-- <li class="nav-item">
+    <a
+      class="nav-link"
+      [routerLink]="['/view-users/ali']"
+      routerLinkActive="active"
+      >View Users</a
+    >
+  </li> -->
+</ul>
+
+<!-- <div class="app-container"></div> -->
+
+<router-outlet></router-outlet>

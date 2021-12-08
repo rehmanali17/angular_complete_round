@@ -1,0 +1,55 @@
+<div class="container my-5">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <form>
+        <input type="text" class="form-control my-2" #title />
+        <input type="text" class="form-control my-2" #body />
+        <p class="text-success">{{ response }}</p>
+        <div class="d-flex justify-content-center my-4">
+          <input
+            *ngIf="!isWaiting"
+            type="button"
+            value="Add"
+            (click)="handleClick(title, body)"
+            class="btn btn-primary"
+          />
+          <div
+            *ngIf="isWaiting"
+            class="spinner-border text-warning"
+            role="status"
+          ></div>
+        </div>
+      </form>
+
+      <p class="text-success">{{ deleteResponse }}</p>
+
+      <div class="d-flex justify-content-center my-4">
+        <button
+          *ngIf="!isLoading"
+          type="button"
+          (click)="handleDelete()"
+          class="btn btn-primary"
+        >
+          Delete
+        </button>
+        <div
+          *ngIf="isLoading"
+          class="spinner-border text-warning"
+          role="status"
+        ></div>
+      </div>
+
+      <div *ngIf="todos.length === 0" class="text-center">
+        <div class="spinner-border text-warning" role="status"></div>
+      </div>
+      <ul *ngIf="todos.length > 0" class="list-group">
+        <li
+          class="list-group-item text-center text-success"
+          *ngFor="let todo of todos"
+        >
+          {{ todo }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
