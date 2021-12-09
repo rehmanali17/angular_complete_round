@@ -1,0 +1,50 @@
+<div class="container my-5">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <form (ngSubmit)="handleSubmit(form)" #form="ngForm" autocomplete="off">
+        <input
+          type="text"
+          class="form-control my-2"
+          name="email"
+          ngModel
+          required
+          email
+          #email="ngModel"
+        />
+        <p *ngIf="!email.valid && email.touched" class="invalid-input">
+          Enter a valid email
+        </p>
+        <p class="text-center text-success">
+          {{ email.value }}
+        </p>
+        <input
+          type="number"
+          class="form-control my-2"
+          name="salary"
+          ngModel
+          required
+          #salary="ngModel"
+        />
+        <p *ngIf="!salary.valid && salary.touched" class="invalid-input">
+          Enter a valid salary
+        </p>
+        <p class="text-center text-success">
+          {{ salary.value }}
+        </p>
+        <div class="d-flex justify-content-center">
+          <input
+            type="submit"
+            class="btn btn-primary my-4"
+            [disabled]="!form.valid"
+            value="ADD"
+          />
+        </div>
+      </form>
+
+      <div class="text-center text-success my-3">
+        <p *ngIf="userEmail !== ''">Email - {{ userEmail }}</p>
+        <p *ngIf="userSalary !== 0">Salary - {{ userSalary }}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -4,6 +4,7 @@ import { UserService } from './services/users.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -25,12 +26,17 @@ import { ObservablesBasicsComponent } from './components/observables/observables
 import { PipesBasicsComponent } from './components/pipes/pipes-basics/pipes-basics.component';
 import { PowerPipe } from './pipes/power.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
-import { AddUsersComponent } from './components/routing/add-users/add-users.component';
-import { ViewUsersComponent } from './components/routing/view-users/view-users.component';
-import { UserDetailsComponent } from './components/routing/user-details/user-details.component';
+// import { AddUsersComponent } from './components/routing/add-users/add-users.component';
+// import { ViewUsersComponent } from './components/routing/view-users/view-users.component';
+// import { UserDetailsComponent } from './components/routing/user-details/user-details.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { UrlDataPassingComponent } from './components/routing/url-data-passing/url-data-passing.component';
 import { HttpBasicsComponent } from './components/http-requests/http-basics/http-basics.component';
+import { TemplateDrivenComponent } from './components/handling-forms/template-driven/template-driven.component';
+import { ReactiveFormsComponent } from './components/handling-forms/reactive-forms/reactive-forms.component';
+import { FormsFirstAssignmentComponent } from './components/handling-forms/forms-first-assignment/forms-first-assignment.component';
+import { FormsSecondAssignmentComponent } from './components/handling-forms/forms-second-assignment/forms-second-assignment.component';
+import { UsersModule } from './users.module';
 
 // const routes: Routes = [
 //   { path: '', component: ContainerComponent },
@@ -66,14 +72,25 @@ import { HttpBasicsComponent } from './components/http-requests/http-basics/http
     PipesBasicsComponent,
     PowerPipe,
     FilterPipe,
-    AddUsersComponent,
-    ViewUsersComponent,
-    UserDetailsComponent,
+    // AddUsersComponent,
+    // ViewUsersComponent,
+    // UserDetailsComponent,
     PageNotFoundComponent,
     UrlDataPassingComponent,
     HttpBasicsComponent,
+    TemplateDrivenComponent,
+    ReactiveFormsComponent,
+    FormsFirstAssignmentComponent,
+    FormsSecondAssignmentComponent,
   ],
-  imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    UsersModule,
+  ],
   providers: [
     UserService,
     LogService,

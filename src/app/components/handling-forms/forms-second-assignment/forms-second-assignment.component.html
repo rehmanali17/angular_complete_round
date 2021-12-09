@@ -1,0 +1,75 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <input
+          type="text"
+          name="name"
+          class="form-control my-2"
+          formControlName="name"
+        />
+        <p
+          *ngIf="
+            (userForm.get('name')?.hasError('required') ||
+              userForm.get('name')?.hasError('minlength')) &&
+            userForm.get('name')?.touched
+          "
+          class="invalid-input"
+        >
+          Enter a minimum 5 length valid project name
+        </p>
+        <p
+          *ngIf="
+            userForm.get('name')?.hasError('nameIsTaken') &&
+            userForm.get('name')?.dirty
+          "
+          class="invalid-input"
+        >
+          Project is already taken
+        </p>
+        <input
+          type="text"
+          name="mail"
+          class="form-control my-2"
+          formControlName="mail"
+        />
+        <p
+          *ngIf="
+            (userForm.get('mail')?.hasError('required') ||
+              userForm.get('mail')?.hasError('email')) &&
+            userForm.get('mail')?.touched
+          "
+          class="invalid-input"
+        >
+          Enter a valid mail
+        </p>
+        <p
+          *ngIf="
+            userForm.get('mail')?.hasError('emailIsTaken') &&
+            userForm.get('mail')?.dirty
+          "
+          class="invalid-input"
+        >
+          Email is already taken
+        </p>
+        <select
+          name="status"
+          class="form-control my-2"
+          formControlName="status"
+        >
+          <option value="Incomplete">Incomplete</option>
+          <option value="Complete">Complete</option>
+          <option value="Pending">Pending</option>
+        </select>
+        <div class="my-4 d-flex justify-content-center">
+          <input
+            type="submit"
+            value="ADD"
+            class="btn btn-primary"
+            [disabled]="userForm.invalid"
+          />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

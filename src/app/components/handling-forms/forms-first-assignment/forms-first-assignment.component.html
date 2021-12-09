@@ -1,0 +1,53 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+        <input
+          type="email"
+          name="email"
+          class="form-control my-2"
+          ngModel
+          required
+          email
+          #email="ngModel"
+        />
+        <p class="invalid-input" *ngIf="!email.valid && email.touched">
+          Enter a valid email
+        </p>
+        <input
+          type="password"
+          name="password"
+          class="form-control my-2"
+          ngModel
+          required
+          minlength="6"
+          #password="ngModel"
+        />
+        <p class="invalid-input" *ngIf="!password.valid && password.touched">
+          Enter a minimum 5 length password
+        </p>
+        <select
+          name="options"
+          [ngModel]="defaultOption"
+          class="form-control my-2"
+        >
+          <option value="Basic">Basic</option>
+          <option value="Advanced">Advanced</option>
+          <option value="Pro">Pro</option>
+        </select>
+        <div class="d-flex justify-content-center my-4">
+          <input
+            type="submit"
+            value="ADD"
+            class="btn btn-primary"
+            [disabled]="!form.valid"
+          />
+        </div>
+      </form>
+
+      <!-- <div class="text-center text-success my-3">
+        <p>{{ defaultOption }}</p>
+      </div> -->
+    </div>
+  </div>
+</div>

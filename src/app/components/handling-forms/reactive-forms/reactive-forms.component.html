@@ -1,0 +1,126 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div class="my-3" formGroupName="jobData">
+          <input
+            type="text"
+            class="form-control my-2"
+            placeholder="Enter Salary"
+            name="salary"
+            formControlName="salary"
+          />
+          <p
+            *ngIf="
+              !userForm.get('jobData.salary')?.valid &&
+              userForm.get('jobData.salary')?.touched
+            "
+            class="invalid-input"
+          >
+            Enter a valid salary
+          </p>
+          <input
+            type="text"
+            class="form-control my-2"
+            placeholder="Enter duration"
+            name="duration"
+            formControlName="duration"
+          />
+          <p
+            *ngIf="
+              !userForm.get('jobData.duration')?.valid &&
+              userForm.get('jobData.duration')?.touched
+            "
+            class="invalid-input"
+          >
+            Enter a valid duration
+          </p>
+        </div>
+        <input
+          type="text"
+          class="form-control my-2"
+          placeholder="Enter name"
+          name="name"
+          formControlName="name"
+        />
+        <p
+          *ngIf="!userForm.get('name')?.valid && userForm.get('name')?.touched"
+          class="invalid-input"
+        >
+          Enter a valid name
+        </p>
+        <input
+          type="text"
+          class="form-control my-2"
+          placeholder="Enter email"
+          name="email"
+          formControlName="email"
+        />
+        <p
+          *ngIf="
+            (userForm.get('email')?.hasError('required') ||
+              userForm.get('email')?.hasError('email')) &&
+            userForm.get('email')?.touched
+          "
+          class="invalid-input"
+        >
+          Enter a valid email
+        </p>
+        <p
+          *ngIf="
+            userForm.get('email')?.hasError('emailIsForbidden') &&
+            userForm.get('email')?.touched
+          "
+          class="invalid-input"
+        >
+          Email is already taken
+        </p>
+        <input
+          type="text"
+          class="form-control my-2"
+          placeholder="Enter password"
+          name="password"
+          formControlName="password"
+        />
+        <p
+          *ngIf="
+            !userForm.get('password')?.valid &&
+            userForm.get('password')?.touched
+          "
+          class="invalid-input"
+        >
+          Enter a valid password
+        </p>
+        <!-- <div class="my-1" formArrayName="hobbies">
+            <div *ngFor="let hobbyControl of userForm.get('hobbies').controls; let i = index;">
+
+            </div>
+
+        </div> -->
+        <div class="my-2">
+          <button class="btn btn-outline-primary" (click)="onAddHobby()">
+            Add Hobby
+          </button>
+        </div>
+        <div class="d-flex justify-content-center my-4">
+          <!-- <input
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="
+              !this.userForm.get('name')?.valid ||
+              !this.userForm.get('email')?.valid ||
+              !this.userForm.get('password')?.valid
+            "
+            value="ADD"
+          /> -->
+          <input
+            type="submit"
+            class="btn btn-primary"
+            value="ADD"
+            [disabled]="userForm.invalid"
+          />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
